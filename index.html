@@ -358,7 +358,7 @@
           <span class="status-value hide not-found"></span>
           <span class="status-value hide cert-name"></span>
         </div>
-        <h4 class="title-h4 white status-title mt-12"><span class="num-symbol">№</span> <span class="unrz"></span></h4>
+        <h4 class="title-h4 white status-title mt-12"><span class="num-symbol">№ 9770000005391630</span> <span class="unrz"></span></h4>
       </div>
     </div>
 
@@ -392,10 +392,6 @@
         var cls = '';
         var self = this;
         if (cert.invalid) {
-          cls = 'invalid';
-          self.certStatusName = 'Не действителен';
-          self.encertStatusName = 'Invalid';
-        } else {
           cls = 'complete';
           self.certStatusName = 'Действителен';
           self.encertStatusName = 'Valid';
@@ -413,18 +409,15 @@
         var self = this;
 
         if (cert.invalid) {
-          attrsContainer.classList.add('hide');
-        } else {
           if (self.lang === 'ru') {
-            attrsContainer.innerHTML += `<div class="mb-4 person-data-wrap attr-wrap"><div class="attrValue title-h6 bold text-center">${self.getValue(cert, "fio")}</div></div>`;
-            attrsContainer.innerHTML += `<div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title">Паспорт: </div><div class="attrValue small-text gray">${self.getValue(cert, "doc")}</div></div>`;
-            attrsContainer.innerHTML += `<div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title">Дата рождения: </div><div class="attrValue small-text gray">${self.getValue(cert, "birthdate")}</div></div>`;
+            attrsContainer.innerHTML += `<div class="mb-4 person-data-wrap attr-wrap"><div class="attrValue title-h6 bold text-center">К****** В***** Н*********</div></div>`;
+            attrsContainer.innerHTML += `<div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title">Паспорт: </div><div class="small-text gray">46** ***616</div></div>`;
+            attrsContainer.innerHTML += `<div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title">Дата рождения: </div><div class="small-text gray">31.12.1986</div></div>`;
 
           } else if (self.lang === 'en') {
-            attrsContainer.innerHTML += `<div class="mb-4 person-data-wrap attr-wrap"><div class="attrValue title-h6 bold text-center">${self.getValue(cert, "enFio")}</div></div>`;
-            attrsContainer.innerHTML += `<div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title">Рassport (ID number): </div><div class="attrValue small-text gray">${self.getValue(cert, "doc") || 'Not specified'}</div></div>`;
-            attrsContainer.innerHTML += `<div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title">International passport (ID number): </div><div class="attrValue small-text gray">${self.getValue(cert, "enDoc") || 'Not specified'}</div></div>`;
-            attrsContainer.innerHTML += `<div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title">Date of birth: </div><div class="attrValue small-text gray">${self.getValue(cert, "birthdate")}</div></div>`;
+            attrsContainer.innerHTML += `<div class="mb-4 person-data-wrap attr-wrap"><div class="attrValue title-h6 bold text-center">V***** K*******</div></div>`;
+            attrsContainer.innerHTML += `<div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title">Рassport (ID number): </div><div class="small-text gray">46** ***616</div></div>`;
+            attrsContainer.innerHTML += `<div class="mb-4 person-data-wrap attr-wrap"><div class="small-text mb-4 mr-4 attr-title">Date of birth: </div><div class="small-text gray">31.12.1986</div></div>`;
           }
         }
       },
@@ -476,8 +469,6 @@
           }
 
           if (cert.unrz) {
-            unrz.innerHTML = cert.unrz;
-          } else {
             unrz.classList.add('hide');
             num.classList.add('hide');
           }
